@@ -45,7 +45,7 @@ def transLoop(cfg):
     if cfg['useDefinedPathIfAvail'] and r(cfg['path']) != '':
         w(cfg['output'], follow(r(cfg['path']), txt))
     else:
-        path = genPath(r(cfg['genPath']['langs']), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end'])
+        path = genPath(r(cfg['genPath']['langs']).split(','), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end'])
         w(cfg['path'], path)
         w(cfg['output'], follow(path, txt))
 
@@ -54,7 +54,7 @@ def main():
     if cfg['mode'] == 'transLoop':
         transLoop(cfg)
     elif cfg['mode'] == 'genPath':
-        w(cfg['path'], genPath(r(cfg['genPath']['langs']), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end']))
+        w(cfg['path'], genPath(r(cfg['genPath']['langs']).split(','), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end']))
     else:
         print('[ERROR] Invalid mode')
 
