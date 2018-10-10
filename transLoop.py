@@ -22,8 +22,11 @@ def getLang(langs, prev):
     return l
 def genPath(langs, len, start, end):
     p = start
+    prev = start
     for i in range(1, len-2):
-        p += '\n' + getLang()
+        nxt = getLang(langs, prev)
+        p += '\n' + nxt
+        prev = nxt
     p += '\n' + end
     return p
 def t(f, t, s):

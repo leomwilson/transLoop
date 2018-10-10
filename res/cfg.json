@@ -1,7 +1,7 @@
 {
   "input" : "res/in.txt",
   "output" : "res/out.txt",
-  "path" : "path.lst",
+  "path" : "res/path.lst",
   "mode" : "transLoop",
   "useDefinedPathIfAvail" : true,
   "genPath" : {
