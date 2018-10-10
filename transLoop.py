@@ -17,7 +17,7 @@ def w(fname, co):
     f.close()
 def getLang(langs, prev):
     l = random.choice(langs)
-    if(l == prev):
+    if l == prev:
         l = getLang(langs, prev)
     return l
 def genPath(langs, len, start, end):
@@ -31,7 +31,7 @@ def t(f, t, s):
 def follow(path, txt):
     path = path.split('\n')
     prev = path[0]
-    for(i in range(1, len(path))):
+    for i in range(1, len(path)):
         txt = t(prev, path[i], txt)
         prev = path[i]
 def loadCFG(fname):
@@ -39,7 +39,7 @@ def loadCFG(fname):
 def transLoop(cfg):
     txt = r(cfg['input'])
 
-    if(cfg['useDefinedPathIfAvail'] and r(cfg['path']) != ''):
+    if cfg['useDefinedPathIfAvail'] and r(cfg['path']) != '':
         w(cfg['output'], follow(r(cfg['path']), txt))
     else:
         path = genPath(r(cfg['genPath']['langs']), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end'])
@@ -48,9 +48,9 @@ def transLoop(cfg):
 
 def main():
     cfg = loadCFG('res/cfg.json') # change the file path if something else is used
-    if(cfg['mode'] == 'transLoop'):
+    if cfg['mode'] == 'transLoop':
         transLoop(cfg)
-    elif(cfg['mode'] == 'genPath'):
+    elif cfg['mode'] == 'genPath':
         w(cfg['path'], genPath(r(cfg['genPath']['langs']), cfg['genPath']['length'], cfg['genPath']['start'], cfg['genPath']['end']))
     else:
         print('[ERROR] Invalid mode')
