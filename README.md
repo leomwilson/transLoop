@@ -1,0 +1,2 @@
+# transLoop
+Translates text repeatedly
