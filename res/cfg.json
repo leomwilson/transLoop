@@ -1,0 +1,13 @@
+{
+  "input" : "res/in.txt",
+  "output" : "res/out.txt",
+  "path" : "path.lst",
+  "mode" : "transLoop",
+  "useDefinedPathIfAvail" : true,
+  "genPath" : {
+    "langs" : "res/langs.csv",
+    "length" : 500,
+    "start" : "en",
+    "end" : "en"
+  }
+}
